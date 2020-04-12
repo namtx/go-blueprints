@@ -42,7 +42,11 @@ func main() {
 
 	gomniauth.SetSecurityKey("secret")
 	gomniauth.WithProviders(
-		github.New(os.Getenv("GITHUB_APP_CLIENT_ID"), os.Getenv("GITHUB_APP_CLIENT_SECRET"), "http://localhost:3000/auth/callback/github"),
+		github.New(
+			os.Getenv("GITHUB_APP_CLIENT_ID"),
+			os.Getenv("GITHUB_APP_CLIENT_SECRET"),
+			"http://localhost:3000/auth/callback/github",
+		),
 	)
 
 	r := chat.NewRoom()
